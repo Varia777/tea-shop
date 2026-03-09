@@ -1,0 +1,8 @@
+.card {
+  width: 100%;  // занимает всю ширину своей колонки
+  max-width: 750px;  // но не шире 350px
+  margin: 0 auto;
+}
+.card-image {
+  max-width: 500px;
+}

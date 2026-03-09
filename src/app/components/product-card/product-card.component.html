@@ -1,0 +1,11 @@
+
+  <div class="card">
+    <img src="{{product.image}}" class="card-img-top" alt="image1">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">{{ product.title }}</h5>
+      <p class="card-text">{{ product.description | clipText: 95}}</p>
+      <a href="#" class="btn btn-primary hvr-grow" [routerLink]="['/products', product.id]">Подробнее</a>
+    </div>
+  </div>
+
+

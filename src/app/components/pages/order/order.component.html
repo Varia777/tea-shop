@@ -1,0 +1,68 @@
+<div class="container">
+
+  <form class="col-lg-6 mx-auto" id="orderForm" *ngIf="!orderSent" (ngSubmit)="submitOrder()" [formGroup]="orderForm">
+    <div class="order">
+      <h2 class="text-center m-5 wow animate__animated animate__bounceOutLeft">Сделать заказ</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <label for="product" class="form-label">Товар</label>
+            <input type="text" class="form-control" formControlName="product"  id="product"  readonly>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+          </div>
+          <div class="col">
+            <label for="surname" class="form-label">Фамилия</label>
+            <input type="text" class="form-control" id="surname" formControlName="last_name">
+          </div>
+          <div class="col">
+            <label for="phone" class="form-label">Телефон</label>
+            <input type="text" class="form-control" id="phone" formControlName="phone">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="country" class="form-label">Страна</label>
+            <input type="text" class="form-control" id="country" formControlName="country">
+          </div>
+          <div class="col">
+            <label for="zipcode" class="form-label">Индекс</label>
+            <input type="text" class="form-control" id="zipcode" formControlName="zip">
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col">
+            <label for="address" class="form-label">Адрес</label>
+            <input type="text" class="form-control" id="address" formControlName="address">
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col">
+            <label for="comment" class="form-label">Комментарий к заказу</label>
+            <input type="text" class="form-control" id="comment" formControlName="comment">
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col">
+            <div class="d-grid gap-2 col-3">
+              <button type="submit" class="btn btn-primary" id="order-btn">
+                Отправить
+              </button>
+              <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="orderSent" class="alert alert-success">
+    <h3>Спасибо за заказ!</h3>
+    <p>Мы скоро свяжемся с вами</p>
+  </div>
+
+</div>

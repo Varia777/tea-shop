@@ -1,0 +1,60 @@
+
+.ngb-accordion .accordion-button {
+  border: none;
+  padding: 25px 23px;
+  border-radius: 10px;
+  background: #076BFF;
+  color: #fff;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.ui-accordion .ui-accordion-content {
+  border: none;
+}
+
+.slick-prev {
+  left: 15px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: url('../assets/images/prev.svg') no-repeat center center;
+}
+
+.slick-next {
+  right: 15px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: url('../assets/images/next.svg') no-repeat center center;
+}
+
+.slick-prev:hover, .slick-prev:focus {
+  background: url('../assets/images/prev.svg') no-repeat center center;
+}
+
+.slick-next:hover, .slick-next:focus {
+  background: url('../assets/images/next.svg') no-repeat center center;
+}
+
+
+
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: rgba(0,0,0,.125);
+}
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 870px;
+  margin: 20px auto;
+}

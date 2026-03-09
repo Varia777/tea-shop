@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="text-center m-5">Описание чая</h1>
+
+
+    <div class="card mb-4 d-flex flex-column align-items-center">
+      <img src="{{product.image}}" class="card-image" alt="image1">
+      <div class="card-body text-center">
+        <h5 class="card-title fw-bold">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">Цена: {{product.price }} ₽</p>
+        <a href="#" class="btn btn-primary hvr-grow open-popup-link" routerLink="/order" [queryParams]="{product: product.title}">Купить</a>
+      </div>
+    </div>
+
+
+</div>
