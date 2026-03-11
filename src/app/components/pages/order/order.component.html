@@ -2,7 +2,7 @@
 
   <form class="col-lg-6 mx-auto" id="orderForm" *ngIf="!orderSent" (ngSubmit)="submitOrder()" [formGroup]="orderForm">
     <div class="order">
-      <h2 class="text-center m-5 wow animate__animated animate__bounceOutLeft">Сделать заказ</h2>
+      <h2 class="text-center m-5">Сделать заказ</h2>
       <div class="container">
         <div class="row">
           <div class="col">
@@ -14,42 +14,62 @@
           <div class="col">
             <label for="name" class="form-label">Имя</label>
             <input type="text" class="form-control" id="name" formControlName="name">
+            <div class="invalid-feedback" *ngIf="name?.invalid && name?.touched">
+              Поле должно содержать только буквы
+            </div>
           </div>
           <div class="col">
             <label for="last_name" class="form-label">Фамилия</label>
             <input type="text" class="form-control" id="last_name" formControlName="last_name">
+            <div class="invalid-feedback" *ngIf="lastName?.invalid && lastName?.touched">
+              Поле должно содержать только буквы
+            </div>
           </div>
           <div class="col">
             <label for="phone" class="form-label">Телефон</label>
-            <input type="text" class="form-control" id="phone" formControlName="phone">
+            <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="+7 (999) 999-99-99">
+            <div class="invalid-feedback" *ngIf="phone?.invalid && phone?.touched">
+              <span *ngIf="phone?.errors?.['required']">Обязательное поле</span>
+              <span *ngIf="phone?.errors?.['pattern']">Номер должен содержать 11 цифр</span>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="country" class="form-label">Страна</label>
             <input type="text" class="form-control" id="country" formControlName="country">
+            <div class="invalid-feedback" *ngIf="country?.invalid && country?.touched">
+              Обязательное поле
+            </div>
           </div>
           <div class="col">
             <label for="zip" class="form-label">Индекс</label>
             <input type="text" class="form-control" id="zip" formControlName="zip">
+            <div class="invalid-feedback" *ngIf="zip?.invalid && zip?.touched">
+              Обязательное поле
+            </div>
           </div>
         </div>
         <div class="row ">
           <div class="col">
             <label for="address" class="form-label">Адрес</label>
             <input type="text" class="form-control" id="address" formControlName="address">
+            <div class="invalid-feedback" *ngIf="address?.invalid && address?.touched">
+              Можно использовать: буквы, цифры, пробелы, дефис (-) и слеш (/)
+            </div>
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
             <label for="comment" class="form-label">Комментарий к заказу</label>
             <input type="text" class="form-control" id="comment" formControlName="comment">
+
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
             <div class="d-grid gap-2 col-3">
-              <button type="submit" class="btn btn-primary" id="order-btn">
+              <button class="btn btn-primary" id="order-btn" [disabled]="orderForm.invalid || orderForm.disabled">
                 Отправить
               </button>
               <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>

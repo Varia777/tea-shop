@@ -1,0 +1,12 @@
+.card {
+  height: 100%;
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-text {
+    flex: 1;
+  }
+}
