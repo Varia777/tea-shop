@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription, takeUntil, timer} from "rxjs";
+import {Subscription, timer} from "rxjs";
 
 @Component({
   selector: 'main-component',

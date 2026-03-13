@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductType} from "../../../types/product.type";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {ProductService} from "../../../services/product.service";
+import {ProductType} from "../../../../types/product.type";
+import {ProductService} from "../../../shared/services/product.service";
 
 @Component({
   selector: 'app-catalogue',
@@ -13,9 +13,14 @@ export class CatalogueComponent implements OnInit {
 
   public products: ProductType[] = [];
 
-  constructor(private productService: ProductService, private http: HttpClient, private router: Router) { }
+  constructor(private productService: ProductService, private http: HttpClient, private router: Router) {
+    console.log('Конструктор Catalogue');
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit Catalogue');
+
+
 
     this.productService.getProducts()
       .subscribe(

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {ProductType} from "../types/product.type";
 import {HttpClient} from "@angular/common/http";
-import {OrderData} from "../types/order-data";
+import {ProductType} from "../../../types/product.type";
+import {OrderData} from "../../../types/order-data";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import {OrderData} from "../types/order-data";
 export class ProductService {
 
   constructor(private http: HttpClient) {
+    console.log('✅ ProductService создан, http:', !!this.http);
   }
 
 

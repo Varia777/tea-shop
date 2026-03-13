@@ -4,40 +4,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { MainComponent } from './components/pages/main/main.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CatalogueComponent } from './components/pages/catalogue/catalogue.component';
-import { ProductsComponent } from './components/pages/products/products.component';
-import { OrderComponent } from './components/pages/order/order.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
 import {HttpClientModule} from "@angular/common/http";
-import { ClipTextPipe } from './pipes/clip-text.pipe';
-import { ProductComponent } from './components/pages/product/product.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MainModule} from "./views/main/main.module";
+import {OrderModule} from "./views/order/order.module";
+import {SharedModule} from "./shared/shared.module";
+import {HeaderComponent} from "./shared/layout/header/header.component";
+import {FooterComponent} from "./shared/layout/footer/footer.component";
+import {ProductsModule} from "./views/products/products.module";
+import {ProductService} from "./shared/services/product.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
     HeaderComponent,
     FooterComponent,
-    CatalogueComponent,
-    ProductsComponent,
-    OrderComponent,
-    ProductCardComponent,
-    ClipTextPipe,
-    ProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    ProductsModule,
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
+    MainModule,
+    OrderModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    ProductService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
